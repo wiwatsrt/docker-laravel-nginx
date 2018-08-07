@@ -1,8 +1,7 @@
-FROM nginx:mainline-alpine
+FROM nginx:1.14-alpine
 
-RUN rm /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/nginx.conf
 
-RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 
 VOLUME ["/var/www", "/etc/nginx/sites-enabled"]
